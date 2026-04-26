@@ -99,12 +99,12 @@ public VentanaDepart(JFrame f )
 public void actionPerformed(ActionEvent e) 
 {   existedepart = "DEPARTAMENTO EXISTE.";
 	String text = existedepart;
-	altadepart(e, text);
+	altadepart(e, text, "PRUEBA");
 		   
-	consuldepart(e, text);
+	consuldepart(e, text, "PRUEBA");
 		  
-	borradepart(e, text);
-	modifdepart(e, text);
+	borradepart(e, text, "PRUEBA");
+	modifdepart(e, text, "PRUEBA");
 	if (e.getSource() == fin) { //SE PULSA EL BOTON salir 	
 		 System.exit(0);	
 		 //dispose();   	
@@ -125,7 +125,7 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-public void modifdepart(ActionEvent e, String text) {
+public int modifdepart(ActionEvent e, String text, String pruebaStr) {
 	int dep;
 	int confirm;
 	if (e.getSource() == modif) { //SE PULSA EL BOTON  modificar  	
@@ -155,9 +155,10 @@ public void modifdepart(ActionEvent e, String text) {
 	       catch (IOException ex2) 
 	    	   {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (MODIFICAR)");} 
 	    }
+	return 0;
 }
 
-public void borradepart(ActionEvent e, String text) {
+public int borradepart(ActionEvent e, String text, String pruebaStr) {
 	int dep;
 	int confirm;
 	if (e.getSource() == borra) { //SE PULSA EL BOTON  borrar  	
@@ -189,9 +190,10 @@ public void borradepart(ActionEvent e, String text) {
 	       catch (IOException ex2) 
 	    	   {mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (BORRAR)");} 
 	    }
+	return 0;
 }
 
-public void consuldepart(ActionEvent e, String text) {
+public int consuldepart(ActionEvent e, String text, String pruebaStr) {
 	int dep;
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
@@ -213,9 +215,10 @@ public void consuldepart(ActionEvent e, String text) {
     	      {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (ALTA)");} 
 	      
 	    }
+	return 0;
 }
 
-public void altadepart(ActionEvent e, String text) {
+public int altadepart(ActionEvent e, String text, String pruebaStr) {
 	int dep;
 	if (e.getSource() == balta) { //SE PULSA EL BOTON alta   	
 		mensaje.setText(" has pulsado el boton alta");   
@@ -241,6 +244,7 @@ public void altadepart(ActionEvent e, String text) {
 	    		
 	    		 } 
 	    }
+	return 0;
 }
 
 public  void verporconsola() throws IOException {     
