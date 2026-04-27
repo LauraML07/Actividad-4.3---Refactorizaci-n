@@ -35,6 +35,7 @@ JButton ver=new JButton("Ver por consola.");
 JButton fin=new JButton("CERRAR");
 Color c; //para poner colores
  // WHITE,LIGHTGRAY,GRAY,DARKGRAY,BLUE,BLACK,RED,MAGENTA,PINK,ORANGE,CYAN,GREEN,YELLOW
+private String nOEXISTEDEPART;
 
 public VentanaDepart(JFrame f )
 { 	
@@ -121,7 +122,7 @@ public void actionPerformed(ActionEvent e)
 	    		 } 
 	    }
 		   
-	String NOEXISTEDEPART = "DEPARTAMENTO NO EXISTE.";
+	nOEXISTEDEPART = "DEPARTAMENTO NO EXISTE.";
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
 		try {
@@ -131,7 +132,7 @@ public void actionPerformed(ActionEvent e)
 	    	       { mensaje.setText(text);   
 	    	         visualiza(dep);}
 			      else
-					{ mensaje.setText(NOEXISTEDEPART);	
+					{ mensaje.setText(nOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
@@ -162,7 +163,7 @@ public void actionPerformed(ActionEvent e)
 	    	           }
 	    	       } 
 			      else
-					{ mensaje.setText(NOEXISTEDEPART);	
+					{ mensaje.setText(nOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
@@ -189,7 +190,7 @@ public void actionPerformed(ActionEvent e)
 		 	           }
 	    	       } 
 			      else
-					{ mensaje.setText(NOEXISTEDEPART);	
+					{ mensaje.setText(nOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
