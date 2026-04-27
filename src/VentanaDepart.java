@@ -201,14 +201,14 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-private void altadepart(String text) {
+private int altadepart(String param1) {
 	int dep;
 	mensaje.setText(" has pulsado el boton alta");   
 	try {
 		  dep=Integer.parseInt(num.getText());
 		  if (dep >0)
 		      if (consultar(dep))
-				 mensaje.setText(text);   
+				 mensaje.setText(param1);   
 		      else
 				{ mensaje.setText("NUEVO DEPARTAMENTO.");	
 		          grabar(dep, nombre.getText(), loc.getText());
