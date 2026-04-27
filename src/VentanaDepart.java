@@ -121,6 +121,7 @@ public void actionPerformed(ActionEvent e)
 	    		 } 
 	    }
 		   
+	String NOEXISTEDEPART = "DEPARTAMENTO NO EXISTE.";
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
 		try {
@@ -130,7 +131,7 @@ public void actionPerformed(ActionEvent e)
 	    	       { mensaje.setText(text);   
 	    	         visualiza(dep);}
 			      else
-					{ mensaje.setText("DEPARTAMENTO NO EXISTE.");	
+					{ mensaje.setText(NOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
@@ -161,7 +162,7 @@ public void actionPerformed(ActionEvent e)
 	    	           }
 	    	       } 
 			      else
-					{ mensaje.setText("DEPARTAMENTO NO EXISTE.");	
+					{ mensaje.setText(NOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
@@ -188,7 +189,7 @@ public void actionPerformed(ActionEvent e)
 		 	           }
 	    	       } 
 			      else
-					{ mensaje.setText("DEPARTAMENTO NO EXISTE.");	
+					{ mensaje.setText(NOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
