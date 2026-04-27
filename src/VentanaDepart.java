@@ -123,6 +123,7 @@ public void actionPerformed(ActionEvent e)
 	    }
 		   
 	nOEXISTEDEPART = "DEPARTAMENTO NO EXISTE.";
+	String depar_error = "DEPARTAMENTO ERR�NEO";
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
 		try {
@@ -138,7 +139,7 @@ public void actionPerformed(ActionEvent e)
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
 	    	  
 	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	           {mensaje.setText("DEPARTAMENTO ERR�NEO");}
+	           {mensaje.setText(depar_error);}
 	         catch (IOException ex2) 
     	      {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (ALTA)");} 
 	      
@@ -169,7 +170,7 @@ public void actionPerformed(ActionEvent e)
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
 	    	  
 	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	           {mensaje.setText("DEPARTAMENTO ERR�NEO");} 
+	           {mensaje.setText(depar_error);} 
 	       catch (IOException ex2) 
 	    	   {mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (BORRAR)");} 
 	    }
@@ -196,7 +197,7 @@ public void actionPerformed(ActionEvent e)
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
 	    	  
 	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	           {mensaje.setText("DEPARTAMENTO ERR�NEO");} 
+	           {mensaje.setText(depar_error);} 
 	       catch (IOException ex2) 
 	    	   {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (MODIFICAR)");} 
 	    }
