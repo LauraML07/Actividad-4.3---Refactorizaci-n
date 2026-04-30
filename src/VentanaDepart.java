@@ -35,6 +35,7 @@ JButton ver=new JButton("Ver por consola.");
 JButton fin=new JButton("CERRAR");
 Color c; //para poner colores
  // WHITE,LIGHTGRAY,GRAY,DARKGRAY,BLUE,BLACK,RED,MAGENTA,PINK,ORANGE,CYAN,GREEN,YELLOW
+private String nOEXISTEDEPART;
 
 public VentanaDepart(JFrame f )
 { 	
@@ -95,31 +96,14 @@ public VentanaDepart(JFrame f )
 
 public void actionPerformed(ActionEvent e) 
 {   int dep, confirm;
-	String text = "DEPARTAMENTO EXISTE.";
+	String existedepart = "DEPARTAMENTO EXISTE.";
+	String text = existedepart;
 	if (e.getSource() == balta) { //SE PULSA EL BOTON alta   	
-		mensaje.setText(" has pulsado el boton alta");   
-		try {
-	    	  dep=Integer.parseInt(num.getText());
-	    	  if (dep >0)
-	    	      if (consultar(dep))
-					 mensaje.setText(text);   
-			      else
-					{ mensaje.setText("NUEVO DEPARTAMENTO.");	
-	    	          grabar(dep, nombre.getText(), loc.getText());
-	    	          mensaje.setText("NUEVO DEPARTAMENTO GRABADO.");	
-	    	         }
-	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
-	    	  
-	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	         {mensaje.setText("DEPARTAMENTO ERR�NEO.");} 
-	       catch (IOException ex2) {
-	    	   mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (ALTA)");
-	    	   // lo creo
-	    		
-	    		
-	    		 } 
+		altadepart(text); 
 	    }
 		   
+	nOEXISTEDEPART = "DEPARTAMENTO NO EXISTE.";
+	String depar_error = "DEPARTAMENTO ERR�NEO";
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
 		try {
@@ -129,13 +113,13 @@ public void actionPerformed(ActionEvent e)
 	    	       { mensaje.setText(text);   
 	    	         visualiza(dep);}
 			      else
-					{ mensaje.setText("DEPARTAMENTO NO EXISTE.");	
+					{ mensaje.setText(nOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
 	    	  
 	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	           {mensaje.setText("DEPARTAMENTO ERR�NEO");}
+	           {mensaje.setText(depar_error);}
 	         catch (IOException ex2) 
     	      {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (ALTA)");} 
 	      
@@ -160,13 +144,13 @@ public void actionPerformed(ActionEvent e)
 	    	           }
 	    	       } 
 			      else
-					{ mensaje.setText("DEPARTAMENTO NO EXISTE.");	
+					{ mensaje.setText(nOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
 	    	  
 	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	           {mensaje.setText("DEPARTAMENTO ERR�NEO");} 
+	           {mensaje.setText(depar_error);} 
 	       catch (IOException ex2) 
 	    	   {mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (BORRAR)");} 
 	    }
@@ -187,13 +171,13 @@ public void actionPerformed(ActionEvent e)
 		 	           }
 	    	       } 
 			      else
-					{ mensaje.setText("DEPARTAMENTO NO EXISTE.");	
+					{ mensaje.setText(nOEXISTEDEPART);	
 					  nombre.setText(" "); loc.setText(" ");
 	    	         }
 	    	  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
 	    	  
 	       } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
-	           {mensaje.setText("DEPARTAMENTO ERR�NEO");} 
+	           {mensaje.setText(depar_error);} 
 	       catch (IOException ex2) 
 	    	   {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (MODIFICAR)");} 
 	    }
@@ -215,6 +199,31 @@ public void actionPerformed(ActionEvent e)
         num.setText(" ");nombre.setText(" ");
         loc.setText(" ");
 	}
+}
+
+private int altadepart(String param1) {
+	int dep;
+	mensaje.setText(" has pulsado el boton alta");   
+	try {
+		  dep=Integer.parseInt(num.getText());
+		  if (dep >0)
+		      if (consultar(dep))
+				 mensaje.setText(param1);   
+		      else
+				{ mensaje.setText("NUEVO DEPARTAMENTO.");	
+		          grabar(dep, nombre.getText(), loc.getText());
+		          mensaje.setText("NUEVO DEPARTAMENTO GRABADO.");	
+		         }
+		  else mensaje.setText("DEPARTAMENTO DEBE SER MAYOR QUE 0");	
+		  
+	   } catch(java.lang.NumberFormatException ex) //controlar el error del Integer.parseInt
+	     {mensaje.setText("DEPARTAMENTO ERR�NEO.");} 
+	   catch (IOException ex2) {
+		   mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (ALTA)");
+		   // lo creo
+			
+			
+			 }
 }
 
 public  void verporconsola() throws IOException {     
